@@ -1,0 +1,108 @@
+@tailwind preflight;
+
+a, button, svg {
+  transition: all 0.2s ease-out;
+}
+body {
+  @apply .text-grey-darkest font-sans;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+
+.hero-card {
+  max-width: 100%;
+}
+
+@screen md {
+
+  .hero-image {
+    margin-right: 10rem;
+    overflow: hidden;
+    max-height: 34rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-card {
+    @apply .absolute .pin-r .pin-t;
+    margin-top: 3.4rem;
+    max-width: 20rem;
+  }
+
+  .section-card {
+    @apply .max-w-xs;
+  }
+
+  .section {
+    @apply .flex-no-wrap
+  }
+
+}
+
+.section-card {
+  @apply .bg-white .items-stretch;
+  padding: 3rem 2rem;
+}
+
+.section {
+  @apply .mx-auto .my-8 .flex .justify-between .flex-wrap;
+}
+
+.section-header {
+  @apply .font-poppins .text-4xl .leading-normal .bg-white .inline-block;
+  margin: 4rem 0 0;
+  padding: 2rem 7rem 2rem 2rem;
+}
+
+
+.section-card-header {
+  @apply .font-poppins .border-b .border-grey-darkest .text-4xl;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.7rem;
+}
+.section-card-more {
+  @apply .mt-8 .no-underline .capitalize .text-grey-darkest .text-lg;
+
+  & span {
+    @apply .border-grey-darkest;
+    border-bottom: 2px dotted;
+  }
+
+  &:hover {
+    @apply .text-blue;
+
+    & span {
+      @apply .border-blue;
+    }
+  }
+}
+
+.icon {
+  @apply .align-middle;
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.social-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: config('colors.teal');
+  margin: 0 1rem;
+
+  &:hover {
+    fill: config('colors.white');
+  }
+}
+
+
+@tailwind utilities;
