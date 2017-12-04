@@ -12,27 +12,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        // use: [
-        //   'vue-style-loader',
-        //   'css-loader'
-        // ],
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader', options: {importLoaders: 1} },
+            {
+              loader: 'css-loader',
+              options: {importLoaders: 1}
+            },
             'postcss-loader'
           ]
         })
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,

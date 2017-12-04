@@ -69,17 +69,8 @@ body {
 .section-card-more {
   @apply .mt-8 .no-underline .capitalize .text-grey-darkest .text-lg;
 
-  & span {
-    @apply .border-grey-darkest;
-    border-bottom: 2px dotted;
-  }
-
   &:hover {
     @apply .text-blue;
-
-    & span {
-      @apply .border-blue;
-    }
   }
 }
 
@@ -93,16 +84,12 @@ body {
   fill: currentColor;
 }
 
-.social-icon {
-  width: 1.7rem;
-  height: 1.7rem;
-  fill: config('colors.teal');
-  margin: 0 1rem;
 
-  &:hover {
-    fill: config('colors.white');
-  }
+.instagram-feed div {
+  @apply .flex .flex-wrap .justify-between .items-start;
 }
+
+@import 'openClose';
 
 
 @tailwind utilities;

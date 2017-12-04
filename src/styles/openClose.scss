@@ -1,0 +1,117 @@
+$height: 17px;
+$width: 22px;
+$line-size: 3px;
+$line-color: config('colors.blue');
+$line-radius: $line-size;
+$to-translate: ($height - $line-size) / 2;
+$bounce: cubic-bezier(.87,-.50,.19,1.50);
+
+.menu {
+  position: relative;
+  height: $height + $line-size + 1;
+  width: $width;
+  cursor: pointer;
+  overflow: hidden;
+
+  &__icon {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__line {
+    position: absolute;
+    left: 0;
+    background-color: $line-color;
+    height: $line-size;
+    width: 100%;
+    border-radius: $line-radius;
+    pointer-events: none;
+    &--1 {
+      top: 0;
+    }
+    &--2 {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &--3 {
+      bottom: 0;
+    }
+  }
+  /*--- Close Button 6 ---*/
+
+  &--close &__icon {
+    transition: transform 0s ease-in-out;
+  }
+  &--close &__line--1 {
+    transition: transform .2s ease-in-out .3s,
+      opacity 0s ease-in-out .4s;
+  }
+  &--close &__line--2{
+    transition: transform .2s ease-in-out;
+  }
+  &--close &__line--2:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: $line-size;
+    background-color: $line-color;
+    border-radius: $line-radius;
+    transition: transform .2s ease-in-out;
+  }
+  &--close &__line--3 {
+    transition: transform .2s ease-in-out .3s,
+      opacity 0s ease-in-out .4s;
+  }
+  // Open
+  &--close.open &__icon {
+    transform: translate(-50%,-50%) rotate(90deg);
+    transition: transform .2s ease-in-out;
+  }
+  &--close.open &__line--1 {
+    opacity: 0;
+    transform: translate3d(0,$to-translate,0);
+    transition: transform .2s ease-in-out .2s,
+      opacity 0s ease-in-out .4s;
+  }
+  &--close.open &__line--2{
+    transform: rotate(45deg);
+    transition: transform .2s ease-in-out .5s;
+  }
+  &--close.open &__line--2:before {
+    transform: rotate(-90deg);
+    transition: transform .2s ease-in-out .5s;
+  }
+  &--close.open &__line--3{
+    opacity: 0;
+    transform: translate3d(0,-$to-translate,0);
+    transition: transform .2s ease-in-out .2s,
+      opacity 0s ease-in-out .4s;
+  }
+  /*--- Back Arrow 6 ---*/
+
+  &--back &__line--1 {
+    transition: transform .3s ease-in-out,
+      top .2s ease-in-out .3s;
+  }
+  &--back &__line--3 {
+    transition: transform .3s ease-in-out,
+      bottom .2s ease-in-out .3s;;
+  }
+  // Open
+  &--back.open &__line--1 {
+    top: $to-translate;
+    transform: translate3d(-6.5px, -7.5px, 0) rotate(-45deg) scaleX(.7);
+    transition: top .2s ease-in-out,
+      transform .3s ease-in-out .2s;
+  }
+  &--back.open &__line--3 {
+    bottom: $to-translate;
+    transform: translate3d(-6.5px, 8px, 0) rotate(45deg) scaleX(.7);
+    transition: bottom .2s ease-in-out,
+      transform .3s ease-in-out .2s;
+  }
+}

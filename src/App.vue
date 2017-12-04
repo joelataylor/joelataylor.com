@@ -1,97 +1,103 @@
 <template>
   <div id="app">
-    <header class="bg-white">
-      <div class="flex justify-end container mx-auto w-full uppercase pt-8 pb-8 font-poppins text-xs">
-        <p class="mr-6"><b>Phone:</b> <a href="tel:1-616-499-3303" class="text-black hover:text-blue no-underline">616.499.3303</a></p>
-        <p class=""><b>Email:</b> <a href="mailto:joel@joelataylor.com?subject=Website%20Contact" class="text-black hover:text-blue no-underline">joel@joelataylor.com</a></p>
-      </div>
-    </header>
-
-    <nav class="flex items-center justify-between flex-wrap pt-9 pb-10 w-full uppercase container mx-auto">
-      <div class="items-center flex-no-shrink">
-          <span class="font-poppins font-bold text-xl tracking-extrawide">{{ myName }}</span>
-      </div>
-      <div class="flex items-center">
-          <a href="/" class="block lg:inline-block text-black no-underline font-semibold hover:text-blue hover:underline mr-8">
-              Home
-          </a>
-          <a href="/blog" class="block lg:inline-block text-black no-underline font-semibold hover:text-blue hover:underline">
-              Blog
-          </a>
-      </div>
-    </nav>
+    <header-nav :me="me"></header-nav>
 
     <hero></hero>
 
     <section-header>What I Do</section-header>
 
-    <section-intro title="eCommerce" image="thumb-griffin2a@2x.png" v-on:toggle="showProjects = !showProjects">From user research to complex implementation of eCommerce systems that are fully integrated with clients existing technologies.</section-intro>
+    <portfolio-section v-for="piece in portfolio" :key="piece.id" :piece="piece"></portfolio-section>
 
-    <transition-group name="fade">
-      <project-overview v-for="project in projects" :key="project.title" :title="project.title" :image="project.image" :href="project.href" v-if="showProjects">{{project.intro}}</project-overview>
-    </transition-group>
+    <about-me></about-me>
 
-    <footer class="bg-blue-dark">
-      <div class="flex justify-between mx-auto w-full container uppercase pt-8 pb-8 text-xs">
-        <div class="text-white leading-normal">
-          <p class=""><b class="font-bold inline-block w-16">Phone:</b> <a href="tel:1-616-499-3303" class="text-white hover:text-teal no-underline">616.499.3303</a></p>
-          <p class=""><b class="font-bold inline-block w-16">Email:</b> <a href="mailto:joel@joelataylor.com?subject=Website%20Contact" class="text-white hover:text-teal no-underline">joel@joelataylor.com</a></p>
-        </div>
-        <div class="">
-          <a href="https://www.linkedin.com/in/joelataylor/"><svg class="social-icon"><use xlink:href="#icon-linkedin"></use></svg></a>
-          <a href="https://www.instagram.com/joelataylor1/"><svg class="social-icon"><use xlink:href="#icon-instagram"></use></svg></a>
-          <a href="https://github.com/joelataylor"><svg class="social-icon"><use xlink:href="#icon-github"></use></svg></a>
-        </div>
-        <div class="text-white">
-          <p>&copy; 2017 Joel A Taylor</p>
-        </div>
-      </div>
-    </footer>
+    <section-header>Hobbies &amp; Projects</section-header>
 
+    <instagram-feed></instagram-feed>
+
+    <footer-nav :me="me"></footer-nav>
   </div>
 </template>
 
 <script>
-import Hero from './components/Hero'
-import SectionHeader from './components/SectionHeader'
-import SectionIntro from './components/SectionIntro'
-import ProjectOverview from './components/ProjectOverview'
+  import HeaderNav from './components/HeaderNav'
+  import FooterNav from './components/FooterNav'
+  import Hero from './components/Hero'
+  import SectionHeader from './components/SectionHeader'
+  import PortfolioSection from './components/PortfolioSection'
+  import AboutMe from './components/AboutMe'
+  import InstagramFeed from './components/InstagramFeed'
 
-export default {
-  name: 'app',
-  data () {
-    return {
-      showProjects: false,
-      myName: 'Joel Taylor',
-      projects: [
-        {
-          title: 'Griffin',
-          image: 'thumb-griffin2@2x.png',
-          href: 'https://griffintechnology.com',
-          intro: "Converting a custom Ruby on Rails app to an Enterprice Magento eCommerce system took just over a year to complete."
+  export default {
+    name: 'app',
+    data () {
+      return {
+        me: {
+          name: 'Joel Taylor',
+          phone: '616.499.3303',
+          email: 'joel@joelataylor.com',
+          linkedin: 'https://www.linkedin.com/in/joelataylor/',
+          instagram: 'https://www.instagram.com/joelataylor1/',
+          github: 'https://github.com/joelataylor'
         },
-        {
-          title: 'Baker Book House',
-          image: 'bakerbookhouse.png',
-          href: 'https://bakerbookhouse.com',
-          intro: "Built on the Ruby on Rails eCommerce platform Solidus, Baker Book House features over 250,000 products and syncs hourly with the physical stores inventory levels."
-        },
-        {
-          title: 'SightLine Display',
-          image: 'sightline-display.png',
-          href: 'https://sightlinedisplay.com',
-          intro: "Providing a way for new small business customers to purchase display solutions was the main goal of rebuilding their eCommerce platform."
-        }
-      ]
+
+        portfolio: [
+          {
+            id: 1,
+            title: 'eCommerce',
+            image: 'thumb-griffin2a@2x.png',
+            intro: "From user research to complex implementation of eCommerce systems that are fully integrated with clients existing technologies.",
+            showProjects: false,
+            projects: [
+              {
+                title: 'Griffin',
+                image: 'thumb-griffin2@2x.png',
+                href: 'https://griffintechnology.com',
+                intro: "Converting a custom Ruby on Rails app to an Enterprice Magento eCommerce system took just over a year to complete."
+              },
+              {
+                title: 'Baker Book House',
+                image: 'bakerbookhouse.png',
+                href: 'https://bakerbookhouse.com',
+                intro: "Built on the Ruby on Rails eCommerce platform Solidus, Baker Book House features over 250,000 products and syncs hourly with the physical stores inventory levels."
+              },
+              {
+                title: 'SightLine Display',
+                image: 'sightline-display.png',
+                href: 'https://sightlinedisplay.com',
+                intro: "Providing a way for new small business customers to purchase display solutions was the main goal of rebuilding their eCommerce platform."
+              }
+            ]
+          },
+          {
+            id: 2,
+            title: 'SaaS',
+            image: 'thumb-songspace2@2x.png',
+            intro: "I've built digital product teams to create and support SaaS products. My experience allows me to push for better concepts early on from the design team and lead ongoing development to continually improve the user experience.",
+            showProjects: false,
+            projects: [],
+          },
+          {
+            id: 3,
+            title: 'Technical Consulting',
+            image: 'coding@2x.png',
+            intro: "Supporting existing digital products and recommending and developing future improvements to keep digital products up to date and relevant.",
+            showProjects: false,
+            projects: [],
+          }
+        ]
+      }
+    },
+
+    components: {
+      HeaderNav,
+      FooterNav,
+      Hero,
+      SectionHeader,
+      PortfolioSection,
+      AboutMe,
+      InstagramFeed
     }
-  },
-  components: {
-    Hero,
-    SectionHeader,
-    SectionIntro,
-    ProjectOverview
   }
-}
 </script>
 
-<style src="./css/styles.css"></style>
+<style src="./styles/app.scss" lang="scss"></style>
