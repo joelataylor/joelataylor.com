@@ -60,7 +60,6 @@ body {
   padding: 2rem 7rem 2rem 2rem;
 }
 
-
 .section-card-header {
   @apply .font-poppins .border-b .border-grey-darkest .text-4xl;
   margin-bottom: 1.8rem;
@@ -74,6 +73,10 @@ body {
   }
 }
 
+.portfolio-section .portfolio-piece:last-child {
+  margin-bottom: 10rem;
+}
+
 .icon {
   @apply .align-middle;
   display: inline-block;
@@ -85,9 +88,39 @@ body {
 }
 
 
-.instagram-feed div {
-  @apply .flex .flex-wrap .justify-between .items-start;
+.instagram-feed > div {
+  @apply .flex .flex-wrap .justify-between .items-stretch .content-start;
 }
+
+.instagram--item {
+  flex: 0 1 48%;
+  transition: all 0.2s ease-out;
+
+  .instagram--text {
+    display: none;
+  }
+
+  &:hover {
+    @apply .shadow-none;
+  }
+}
+
+@screen md {
+  .instagram--item {
+    flex: 0 1 31%;
+
+    .instagram--text {
+      display: block;
+    }
+  }
+}
+
+@screen xl {
+  .instagram--item {
+    flex: 0 1 23%;
+  }
+}
+
 
 @import 'openClose';
 

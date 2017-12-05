@@ -2,9 +2,15 @@ $height: 17px;
 $width: 22px;
 $line-size: 3px;
 $line-color: config('colors.blue');
+$line-color-hover: config('colors.blue-lighter');
 $line-radius: $line-size;
 $to-translate: ($height - $line-size) / 2;
 $bounce: cubic-bezier(.87,-.50,.19,1.50);
+
+.section-card-more:hover .menu .menu__line,
+.section-card-more:hover .menu .menu__line--2:before {
+  background-color: $line-color-hover;
+}
 
 .menu {
   position: relative;
@@ -41,7 +47,6 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
       bottom: 0;
     }
   }
-  /*--- Close Button 6 ---*/
 
   &--close &__icon {
     transition: transform 0s ease-in-out;
@@ -66,7 +71,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
     transition: transform .2s ease-in-out .3s,
       opacity 0s ease-in-out .4s;
   }
-  // Open
+
   &--close.open &__icon {
     transform: translate(-50%,-50%) rotate(90deg);
     transition: transform .2s ease-in-out;
@@ -91,7 +96,6 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
     transition: transform .2s ease-in-out .2s,
       opacity 0s ease-in-out .4s;
   }
-  /*--- Back Arrow 6 ---*/
 
   &--back &__line--1 {
     transition: transform .3s ease-in-out,
@@ -101,7 +105,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
     transition: transform .3s ease-in-out,
       bottom .2s ease-in-out .3s;;
   }
-  // Open
+
   &--back.open &__line--1 {
     top: $to-translate;
     transform: translate3d(-6.5px, -7.5px, 0) rotate(-45deg) scaleX(.7);

@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto relative hero">
     <div class="image hero-image mb-8 md:mb-0">
-      <img class="" src="../img/hero@2x.png" alt="Standing at my favorite lake; Lake Hawea, New Zealand"/>
+      <img class="" src="../img/hero.jpg" alt="Standing at my favorite lake; Lake Hawea, New Zealand"/>
     </div>
     <div class="section-card hero-card">
       <h1 class="section-card-header">{{ title }}</h1>

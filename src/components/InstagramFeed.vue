@@ -1,12 +1,12 @@
 <template>
   <section class="container mx-auto m-8 instagram-feed">
-    <vue-instagram :token="instagramToken" :username="instagramUsername" :count="10" :tags="[]">
+    <vue-instagram :token="instagramToken" :username="instagramUsername" :count="12" :tags="[]">
       <template slot="feeds" slot-scope="props">
-        <div class="max-w-xs rounded overflow-hidden shadow-lg mb-5">
+        <div class="instagram--item rounded overflow-hidden shadow-lg mb-8">
           <a :href="props.feed.link" target="_blank">
             <img class="w-full" :src="props.feed.images.standard_resolution.url" :alt="props.feed.caption.text" />
           </a>
-          <div class="px-6 py-4">
+          <div class="instagram--text px-6 py-4">
             <p class="text-grey-darker text-base">
               {{ props.feed.caption.text }}
             </p>
