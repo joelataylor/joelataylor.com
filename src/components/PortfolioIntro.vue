@@ -4,10 +4,10 @@
       <img :src="getImgSrc()" class="flex-auto" alt="" />
     </div>
     <div class="section-card flex flex-col">
-      <h1 class="section-card-header">{{title}}</h1>
-      <p class="leading-tight flex-grow"><slot></slot></p>
-      <a class="flex align-center section-card-more no-underline capitalize text-lg text-blue hover:text-blue-lighter" href="" v-on:click.prevent="showProjects()">
-        <div class="menu menu--close mr-2" :class="{open: isOpen}">
+      <h1 class="section-card-header">{{piece(id).title}}</h1>
+      <p class="leading-tight flex-grow">{{piece(id).intro}}</p>
+      <a class="flex align-center section-card-more no-underline capitalize text-lg text-blue hover:text-blue-lighter" href="" @click.prevent="toggleProjects(id)">
+        <div class="menu menu--close mr-2" :class="{open: showProjects(id)}">
           <div class="menu__icon">
             <div class="menu__line menu__line--1"></div>
             <div class="menu__line menu__line--2"></div>
@@ -21,17 +21,31 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'PortfolioIntro',
-  props: ['title', 'image', 'isOpen'],
+
+  props: ['id'],
+
+  computed: {
+    // piece: function() {
+    //   return this.$store.getters.getProject(this.id)
+    // },
+    ...mapGetters({
+      piece: 'getProject',
+      showProjects: 'shouldShowProjects'
+    })
+  },
+
   methods: {
     getImgSrc: function () {
-      const url = require(`../img/${this.image}`)
+      const url = require(`../img/${this.piece(this.id).image}`)
       return url
     },
-    showProjects: function(event) {
-      this.$emit('toggle')
-    }
+    ...mapActions([
+      'toggleProjects'
+    ])
   }
 }
 </script>

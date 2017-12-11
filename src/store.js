@@ -92,6 +92,10 @@ const mutations = {
   },
   decrement (state) {
     state.count--
+  },
+  toggleProjects (state, payload) {
+    let p = state.portfolio.find(project => project.id === payload.id)
+    p.showProjects = !p.showProjects
   }
 }
 
@@ -110,6 +114,9 @@ const actions = {
         resolve()
       }, 1000)
     })
+  },
+  toggleProjects (context, id) {
+    context.commit('toggleProjects', {id: id})
   }
 }
 
@@ -118,7 +125,13 @@ const getters = {
   getMe: (state) => {
     return state.me
   },
-  getPorfolio: state => state.portfolio
+  getPorfolio: state => state.portfolio,
+  shouldShowProjects: (state) => (id) => {
+    return state.portfolio.find(project => project.id === id).showProjects
+  },
+  getProject: (state) => (id) => {
+    return state.portfolio.find(project => project.id === id)
+  }
 }
 
 export default new Vuex.Store({
