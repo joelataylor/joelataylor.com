@@ -114,7 +114,11 @@ const actions = {
 }
 
 const getters = {
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
+  getMe: (state) => {
+    return state.me
+  },
+  getPorfolio: state => state.portfolio
 }
 
 export default new Vuex.Store({
