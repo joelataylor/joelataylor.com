@@ -14,7 +14,7 @@
         </div>
       </template>
       <template slot="error" slot-scope="props">
-        <div class="fancy-alert"> {{ props.error.error_message }} </div>
+        <div class="fancy-alert" v-if="props.error.error_message"> {{ props.error.error_message }} </div>
       </template>
     </vue-instagram>
   </section>
