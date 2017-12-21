@@ -2,18 +2,19 @@
   <footer class="bg-blue-dark">
     <div class="flex flex-col md:flex-row justify-between mx-auto w-full container uppercase p-8 md:p-0 md:pb-8 md:pt-8 text-xs">
       <div class="text-white leading-normal mb-8">
-        <p class=""><b class="font-bold inline-block w-16">Phone:</b> <a :href="'tel:1'+$store.state.me.phone" class="text-white hover:text-teal no-underline">{{$store.state.me.phone}}</a></p>
-        <p class=""><b class="font-bold inline-block w-16">Email:</b> <a :href="'mailto:'+$store.state.me.email+'?subject=Website%20Contact'" class="text-white hover:text-teal no-underline">{{$store.state.me.email}}</a></p>
+        <p class=""><b class="font-bold inline-block w-16">Phone:</b> <a :href="'tel:1'+me.phone" class="text-white hover:text-teal no-underline">{{me.phone}}</a></p>
+        <p class=""><b class="font-bold inline-block w-16">Email:</b> <a :href="'mailto:'+me.email+'?subject=Website%20Contact'" class="text-white hover:text-teal no-underline">{{me.email}}</a></p>
       </div>
       <div class="social mb-8">
-        <a :href="$store.state.me.linkedin"><svg class="social-icon"><use xlink:href="#icon-linkedin"></use></svg></a>
-        <a :href="$store.state.me.instagram"><svg class="social-icon"><use xlink:href="#icon-instagram"></use></svg></a>
-        <a :href="$store.state.me.github"><svg class="social-icon"><use xlink:href="#icon-github"></use></svg></a>
+        <a :href="me.linkedin"><svg class="social-icon"><use xlink:href="#icon-linkedin"></use></svg></a>
+        <a :href="me.instagram"><svg class="social-icon"><use xlink:href="#icon-instagram"></use></svg></a>
+        <a :href="me.github"><svg class="social-icon"><use xlink:href="#icon-github"></use></svg></a>
       </div>
       <div class="text-white mb-8">
-        <p id="copyright">😀 &nbsp; &copy; 2018 &nbsp; {{$store.state.me.name}}</p>
+        <p id="copyright">😀 &nbsp; &copy; 2018 &nbsp; {{me.name}}</p>
       </div>
     </div>
+    <p class="text-white p-8 text-center">{{count}} is {{evenOrOdd}} <button class="bg-blue hover:bg-blue-dark text-white py-1 px-4 rounded" @click="add">Add</button> <button class="bg-blue hover:bg-blue-dark text-white py-1 px-4 rounded" @click="subtract">Subtract</button></p>
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
       <symbol id="icon-linkedin" viewBox="0 0 24 24">
         <title>LinkedIn icon</title>
@@ -35,7 +36,26 @@
 
 <script>
   export default {
-    name: 'FooterNav'
+    name: 'FooterNav',
+    computed: {
+      me: function() {
+        return this.$store.getters.getMe
+      },
+      evenOrOdd: function() {
+        return this.$store.getters.evenOrOdd
+      },
+      count: function() {
+        return this.$store.state.count
+      }
+    },
+    methods: {
+      add: function() {
+        this.$store.dispatch('increment')
+      },
+      subtract: function() {
+        this.$store.dispatch('decrement')
+      }
+    }
   }
 </script>
 

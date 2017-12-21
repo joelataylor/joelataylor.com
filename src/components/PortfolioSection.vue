@@ -1,8 +1,6 @@
 <template>
   <div class="portfolio-section">
-    <portfolio-intro :title="piece.title" :image="piece.image" :isOpen="showProjects" v-on:toggle="showProjects = !showProjects">
-      {{piece.intro}}
-    </portfolio-intro>
+    <portfolio-intro :id="piece.id"></portfolio-intro>
     <transition-group name="fade">
       <project-overview class="portfolio-piece" v-for="project in piece.projects" :key="project.title" :title="project.title" :image="project.image" :href="project.href" v-if="showProjects">
         {{project.intro}}
@@ -18,9 +16,9 @@ import ProjectOverview from './ProjectOverview'
 export default {
   props: ['piece'],
 
-  data () {
-    return {
-      showProjects: false
+  computed: {
+    showProjects: function() {
+      return this.$store.getters.shouldShowProjects(this.piece.id)
     }
   },
 
