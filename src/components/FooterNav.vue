@@ -14,7 +14,6 @@
         <p id="copyright">😀 &nbsp; &copy; 2018 &nbsp; {{me.name}}</p>
       </div>
     </div>
-    <p class="text-white p-8 text-center">{{count}} is {{evenOrOdd}} <button class="bg-blue hover:bg-blue-dark text-white py-1 px-4 rounded" @click="add">Add</button> <button class="bg-blue hover:bg-blue-dark text-white py-1 px-4 rounded" @click="subtract">Subtract</button></p>
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
       <symbol id="icon-linkedin" viewBox="0 0 24 24">
         <title>LinkedIn icon</title>
