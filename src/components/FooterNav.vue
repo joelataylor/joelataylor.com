@@ -11,7 +11,7 @@
         <a :href="me.github"><svg class="social-icon"><use xlink:href="#icon-github"></use></svg></a>
       </div>
       <div class="text-white mb-8">
-        <p id="copyright">😀 &nbsp; &copy; 2018 &nbsp; {{me.name}}</p>
+        <p id="copyright">😀 &nbsp; &copy; {{year}} &nbsp; {{me.name}}</p>
       </div>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
@@ -45,6 +45,10 @@
       },
       count: function() {
         return this.$store.state.count
+      },
+      year: function() {
+        const date = new Date();
+        return date.getFullYear();
       }
     },
     methods: {
