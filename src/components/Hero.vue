@@ -5,7 +5,7 @@
     </div>
     <div class="section-card hero-card">
       <h1 class="section-card-header">{{ title }}</h1>
-      <p class="leading-tight">My journey has influenced how I approach digital products. I've been a designer, a developer and now a technical product manager, because of that I can confidently build and lead digital product teams. My experience allows me to manage designers, developers, project managers in a more direct and thoughtful way.</p>
+      <p class="leading-tight">My journey has influenced how I approach digital products. I've been a designer, a developer, product manager, and a leader on digital platforms and products for over 15 years. <br><br>Because of this foundation, I confidently build and lead digital teams to produce both strategic and beautiful experiences based on thoughtful technical foundations.</p>
     </div>
   </section>
 </template>

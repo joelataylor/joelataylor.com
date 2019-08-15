@@ -6,7 +6,7 @@
     <div class="section-card flex flex-col">
       <h1 class="section-card-header">{{piece(id).title}}</h1>
       <p class="leading-tight flex-grow">{{piece(id).intro}}</p>
-      <a class="flex align-center section-card-more no-underline capitalize text-lg text-blue hover:text-blue-lighter" href="" @click.prevent="toggleProjects(id)">
+      <a v-if="piece(id).projects" class="flex align-center section-card-more no-underline capitalize text-lg text-blue hover:text-blue-lighter" href="" @click.prevent="toggleProjects(id)">
         <div class="menu menu--close mr-2" :class="{open: showProjects(id)}">
           <div class="menu__icon">
             <div class="menu__line menu__line--1"></div>

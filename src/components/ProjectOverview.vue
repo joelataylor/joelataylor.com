@@ -3,11 +3,11 @@
     <div class="section-card flex flex-col">
       <h1 class="section-card-header">{{title}}</h1>
       <p class="leading-tight flex-grow"><slot></slot></p>
-      <a class="section-card-more text-blue hover:text-blue-lighter" :href="href" target="_blank">
+      <a v-if="href" class="section-card-more text-blue hover:text-blue-lighter" :href="href" target="_blank">
         <span>Visit website</span>
       </a>
     </div>
-    <div class="image md:flex-1 md:ml-8">
+    <div class="image bg-white md:flex-1 md:ml-8">
       <img :src="getImgSrc()" class="" alt="" />
     </div>
   </section>

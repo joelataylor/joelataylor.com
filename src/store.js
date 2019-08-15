@@ -16,33 +16,41 @@ const state = {
   portfolio: [
     {
       id: 1,
+      title: 'Platform',
+      image: 'thumb-invision-logo@2x.png',
+      intro: "Currently, I lead the team that designs and builds internal tooling for InVision.",
+      showProjects: false,
+      projects: false
+    },
+    {
+      id: 2,
       title: 'eCommerce',
       image: 'thumb-griffin2a@2x.png',
-      intro: "From user research to complex implementation of eCommerce systems that are fully integrated with clients existing technologies.",
+      intro: "I've had extensive specialty experience working on large eCommerce sites in both user experience and technical leadership roles.",
       showProjects: false,
       projects: [
         {
           title: 'Griffin',
           image: 'thumb-griffin2@2x.png',
           href: 'https://griffintechnology.com',
-          intro: "Converting a custom Ruby on Rails app to an Enterprice Magento eCommerce system took just over a year to complete."
+          intro: "An Enterprice eCommerce system that had tight integrations with international warehouse fulfillment centers"
         },
         {
           title: 'Baker Book House',
           image: 'bakerbookhouse.png',
           href: 'https://bakerbookhouse.com',
-          intro: "Built on the Ruby on Rails eCommerce platform Solidus, Baker Book House features over 250,000 products and syncs hourly with the physical stores inventory levels."
+          intro: "Baker Book House features over 250,000 products and syncs data to their physical stores."
         },
         {
           title: 'SightLine Display',
           image: 'sightline-display.png',
           href: 'https://sightlinedisplay.com',
-          intro: "Providing a way for new small business customers to purchase display solutions was the main goal of rebuilding their eCommerce platform."
+          intro: "Providing a way for customers to purchase custom display solutions."
         }
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'SaaS',
       image: 'thumb-songspace2@2x.png',
       intro: "I've built digital product teams to create and support SaaS products. My experience allows me to push for better concepts early on from the design team and lead ongoing development to continually improve the user experience.",
@@ -52,27 +60,27 @@ const state = {
           title: 'Once A Month Meals',
           image: 'thumb-oamm2a.jpg',
           href: 'https://onceamonthmeals.com',
-          intro: "I was the first technical hire at OAMM and was tasked with auditing and planning a large upgrade to their platform, infrastructure and core service offerings. Built on two ruby apps, an EmberJS app and a WordPress CMS this was a technical integration challange."
+          intro: "I was the first technical hire at OAMM and was tasked with auditing and planning a large upgrade to their platform, infrastructure and core service offerings."
         },
         {
           title: 'Songspace',
           image: 'thumb-songspace2a.jpg',
           href: 'https://songspace.com',
-          intro: "From concept to paying customers, Songspace was a great product (with a great team) to cut my teeth on building a SaaS product. I assembled contractors for the prototype build, then hired a small team to build v1 after a Series A round of funding."
+          intro: "From concept to paying customers, Songspace was recently acquired and is proof that a small idea can grow into a multi-national product. I was the first hire at Songspace when it was just getting it's first round of funding. I hired and managed the team to build the POC which lead to a Series A round of funding."
         }
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: 'Technical Consulting',
       image: 'coding@2x.png',
-      intro: "Supporting existing digital products and recommending and developing future improvements to keep digital products up to date and relevant.",
+      intro: "I take on occasional freelance technical consulting and development (have to keep some coding skills fresh) for select clients.",
       showProjects: false,
       projects: [
         {
           title: 'GlobalX',
           image: 'thumb-globalx.png',
-          href: 'https://www.globalxfunds.com',
+          href: 'https://globalxetfs.com',
           intro: "I designed and built a system that would import a nightly feed of data, parse it, insert it into a database and store common queries in cache."
         },
         {
