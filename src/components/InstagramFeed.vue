@@ -1,14 +1,14 @@
 <template>
   <section class="container mx-auto m-8 instagram-feed">
-    <vue-instagram :token="instagramToken" :count="12">
+    <vue-instagram :token="instagramToken" :count="9">
       <template slot="feeds" slot-scope="props">
         <div class="instagram--item rounded overflow-hidden shadow-lg mb-8">
-          <a :href="props.feed.link" target="_blank">
-            <img class="w-full" :src="props.feed.images.standard_resolution.url" :alt="props.feed.caption.text" />
+          <a :href="props.feed.permalink" target="_blank">
+            <img class="w-full" :src="props.feed.media_url" :alt="props.feed.caption" />
           </a>
           <div class="instagram--text px-6 py-4">
             <p class="text-grey-darker text-base">
-              {{ props.feed.caption.text }}
+              {{ props.feed.caption }}
             </p>
           </div>
         </div>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import VueInstagram from 'vue-instagram'
+import VueInstagram from './VueInstagram.vue'
 
 export default {
   name: 'InstagramFeed',
   data () {
     return {
-      instagramToken: '275632354.3eb48a4.727c94c99b7a4c80a7ae22719925de4e'
+      instagramToken: 'IGQVJWYWtZAc1FkVG9FT1hvc2VrQWtIeU93ZAlhBY0hZAc0FMaG1fU0thU1Noajk1ak94UlRxR0dOZAHo0dWF2dk5mZAzJUdDVmZAVp5QU9KZAnRQNVQ1Vkhtd3RCN0VJWmRlWDlYREdrb0YwWGZACUXJua3dBQgZDZD'
     }
   },
   components: {
