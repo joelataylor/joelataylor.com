@@ -7,11 +7,11 @@ const state = {
   count: 0,
   me: {
     name: 'Joel Taylor',
-    phone: '+1-616-499-3303',
+    nz_phone: '+64-27-297-1430',
+    us_phone: '+1-616-499-3303',
     email: 'joelataylor@gmail.com',
     linkedin: 'https://www.linkedin.com/in/joelataylor/',
-    instagram: 'https://www.instagram.com/joelataylor1/',
-    github: 'https://github.com/joelataylor'
+    instagram: 'https://www.instagram.com/joelataylor1/'
   },
   portfolio: [
     {

@@ -16,3 +16,5 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+# to regenerate intagram token
+https://developers.facebook.com/apps/132741712173/instagram-basic-display/basic-display/

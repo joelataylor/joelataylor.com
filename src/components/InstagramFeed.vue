@@ -27,7 +27,7 @@ export default {
   name: 'InstagramFeed',
   data () {
     return {
-      instagramToken: 'IGQVJWYWtZAc1FkVG9FT1hvc2VrQWtIeU93ZAlhBY0hZAc0FMaG1fU0thU1Noajk1ak94UlRxR0dOZAHo0dWF2dk5mZAzJUdDVmZAVp5QU9KZAnRQNVQ1Vkhtd3RCN0VJWmRlWDlYREdrb0YwWGZACUXJua3dBQgZDZD'
+      instagramToken: 'IGQVJVaGp6MkNKYXdQZAjVmNHktanlPSmh6Q0xaSGJ5RTduMG1KX3NWNC1obGFHX0laNS14TXdSSzdvMXAyTjItdWc1RlU5Vk51Q1d4ck5tQ0tRYVBXaWVzemF5bTRyQWlONzRudDBTUmFnY1RGZATBZAdQZDZD'
     }
   },
   components: {
