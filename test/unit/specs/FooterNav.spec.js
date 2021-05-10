@@ -17,6 +17,6 @@ describe('FooterNav', () => {
     const wrapper = shallow(FooterNav, { store, localVue })
     const el = wrapper.find('#copyright')
     //console.log(el.text())
-    expect(el.text()).toEqual("😀   © 2018   Joel Taylor")
+    expect(el.text()).toEqual("😀   © 2021   Joel Taylor")
   })
 })
